@@ -1,0 +1,39 @@
+/* CSS HEX */
+ --cadet-blue: #a3b8c5;
+--chathams-blue: #114d67;
+--geyser: #cdd8de;
+--hoki: #658a9d;
+--jagged-ice: #c0dde9;
+--blue-bayoux: #4c6c81;
+--bermuda-gray: #748ca2;
+--bismark: #447c8d;
+--cutty-sark: #54747c;
+--gothic: #74949c;
+
+
+/* SCSS HEX */
+$cadet-blue: #a3b8c5;
+$chathams-blue: #114d67;
+$geyser: #cdd8de;
+$hoki: #658a9d;
+$jagged-ice: #c0dde9;
+$blue-bayoux: #4c6c81;
+$bermuda-gray: #748ca2;
+$bismark: #447c8d;
+$cutty-sark: #54747c;
+$gothic: #74949c;
+
+
+/* SCSS RGB */
+--cadet-blue: rgba(163,184,197,1);
+--chathams-blue: rgba(17,77,103,1);
+--geyser: rgba(205,216,222,1);
+--hoki: rgba(101,138,157,1);
+--jagged-ice: rgba(192,221,233,1);
+--blue-bayoux: rgba(76,108,129,1);
+--bermuda-gray: rgba(116,140,162,1);
+--bismark: rgba(68,124,141,1);
+--cutty-sark: rgba(84,116,124,1);
+--gothic: rgba(116,148,156,1);
+
+
