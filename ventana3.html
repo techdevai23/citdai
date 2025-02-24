@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventana 3</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui/1.13.2/themes/base/jquery-ui.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+
+  <script>
+    // pequeño script para mostrar el nombre del usuario en la página
+    $(document).ready(function () {
+        var nombre = localStorage.getItem('nombre');
+        $('#nombreUsuario').text(nombre);
+    });
+</script>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">CITDAI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="prueba_portada2.html"><i class="bi bi-house-door"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inicio_sesion_ventana1.html"><i class="bi bi-robot"></i> Perfil
+              cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bienvenidaCL _3.html"><i class="bi bi-clock-history"></i> Historia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto"><i class="bi bi-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="main-header" id="inicio">
+    <div class="container text-center">
+      <h1 class="display-4">Centro de Innovación TechDevAI</h1>
+      <p class="lead text-light">EL FUTURO HA LLEGADO. Robots humanoides diseñados para cambiar tu vida.</p>
+    </div>
+  </header>
+
+  <div class="main-grid-container">
+    <!-- Columna izquierda -->
+    <div class="left-column">
+        <!-- Espacio reservado para la imagen -->
+        <img src="imagenes_ portada/fabirca_pie916.jpeg" alt="Imagen" class="img-fluid"> 
+    </div>
+
+    <!-- Columna central -->
+    <div class="center-column">
+      <div class="company-info">
+
+      
+      <!-- <h1>Lista de deseos</h1> -->
+      <h3>
+        <pre>
+¡ Bienvenido a tu lista de deseos <span id="nombreUsuario"></span>! </pre>
+      </h3>
+      <pre >Esta es tu lista de robots. Puedes:
+    
+◦ Añadir nuevas robots.
+◦ Marcar robots como comprados.
+◦ Eliminar robots específicos.</pre>
+
+
+
+      <form action="" id="form" method="post">
+
+        <label for="tarea">Nombre de Robot: </label>
+        <select id="tarea" name="tarea" required>
+          <option value="Robot A">Robot Alpha</option>
+          <option value="Robot B">Robot Beta</option>
+          <option value="Robot C">Robot Gamma</option>
+          <option value="Robot D">Robot Delta</option>
+        </select>
+
+        <input type="submit" id="validar" value=" Añadir ">
+      </form>
+    </div>
+
+  </div>
+
+      <!-- Columna derecha -->
+      <div class="right-column">
+        <div class="company-info">
+     
+        <div id="lista">
+          <h3>Lista de productos deseados</h3>
+          <div id="espacioTareas" class="espacioTareas">
+  
+          </div>
+  
+  
+      </div>
+  
+      <div id="listaCompletadas">
+          <h3>Lista de productos comprados</h3>
+          <div id="espacioTareasCompletadas" class="espacioTareas">
+  
+          </div>
+  
+  
+      </div>
+          
+      </div>
+    </div>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="footer-title">Sobre CITDAI</div>
+              <p>Pioneros en robótica humanoide avanzada, comprometidos con la creación de tecnología que mejora
+                vidas.</p>
+              <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="footer-title">Enlaces Rápidos</div>
+              <ul class="footer-links">
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                <li><a href="#robots"><i class="bi bi-chevron-right"></i> Nuestros Robots</a></li>
+                <li><a href="#historia"><i class="bi bi-chevron-right"></i> Historia</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Términos y Condiciones</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Política de Privacidad</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-4" id="contacto">
+              <div class="footer-title">Contacto</div>
+              <ul class="footer-links">
+                <img src="logos_ iconos/ok Firefly.png" alt="logo CITDAI" width="100px">
+                <li><i class="bi bi-geo-alt-fill"></i> Avenida Tecnológica 123, EL Burgo de Ebro</li>
+                <li><i class="bi bi-telephone-fill"></i> +1 (555) 123-4567</li>
+                <li><i class="bi bi-envelope-fill"></i> info@techdevai.es</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="text-center copyright">
+            &copy; 2025 CITDAI Technologies. Todos los derechos reservados.
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        //Recogemos el click del botón, evitamos que se envíe el formulario y recogemos el valor del input
+        $("#form").submit(function (evento) {
+            evento.preventDefault();
+            var tarea = $("#tarea").val();
+            insertaTarea(tarea);
+        });
+
+        //vamos a hacer una función para añadir tareas
+        function insertaTarea(tarea) {
+            $("#espacioTareas").append(
+                //creamos un div con un checkbox para indicar tarea completada y un botón para eliminar
+                '<div class="deseado">Producto: ' + tarea + ' ' + '<br>' + '<button id="peligro" onclick="eliminarTarea(this)">Eliminar</button> <input type="checkbox" id="tareaC" name="tarea" value="' + tarea +
+                '"> Adquirido</div><div>__________________________</div>');
+
+        }
+        //hago una función para eliminar la tarea
+        function eliminarTarea(elemento) {
+            /*eliminamos el div que contiene la tarea, usando parent para encontrar al padre del botón y 
+            remove para eliminar el elemento seleccionado*/
+            $(elemento).parent().remove();
+        }
+
+        //vamos a hacer una función para añadir tareas completadas, las que son chequeadas
+        $(document).on('click', 'input[type="checkbox"]', function () {
+            if ($(this).is(':checked')) {
+                //el valor que recogemos es lo que añadiremos al div de tareas completadas
+                var tarea = $(this).val();
+                //llamamos a la función que inserta la tarea completada
+                insertaTareaCompletada(tarea);
+                //eliminamos la tarea de la lista de tareas pendientes
+                $(this).parent().remove();
+            }
+        });
+
+        //vamos a hacer una función para añadir tareas completadas
+        function insertaTareaCompletada(tarea) {
+            //es similar a la inserción anterior, pero en otro div
+            $("#espacioTareasCompletadas").append(
+                //creamos un div con un checkbox para indicar tarea completada y un botón para eliminar
+                '<div id="completa">'+'Producto adquirido: ' + tarea + ' ' + '<br>' + '<button id="peligro" onclick="eliminarTarea(this)">Borrar del historial</button> <div>__________________________</div>');
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
