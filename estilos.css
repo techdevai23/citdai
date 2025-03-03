@@ -3,12 +3,13 @@
   --secondary-color: #00ccff;
   --light-color: #f1f7f0;
   --accent-color: #ff3366;
+  --fondoDIV: rgb(0, 26, 51, 0.7);
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #cdd8de;
-  
+
   color: var(--light-color);
   overflow-x: hidden;
   background-image: radial-gradient(circle, #e6f2ff 0%, #cdd8de 100%);
@@ -16,6 +17,7 @@ body {
   padding: 0;
 }
 
+/****** barra de navegación  *********/
 .navbar {
   background-color: #cdd8de;
   backdrop-filter: blur(10px);
@@ -51,6 +53,7 @@ body {
   width: 100%;
 }
 
+/*********  Contenedor principal  *********/
 .main-grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -59,6 +62,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
+
 }
 
 .top-bar {
@@ -72,17 +76,25 @@ body {
   margin-bottom: 20px;
 }
 
+/**  contenedor carrito y contador  ***/
+
 .cart-container {
   display: flex;
   align-items: right;
 }
 
+/****** cuenta atras ******/
 .countdown-container {
   display: flex;
   flex-direction: column;
   align-items: left;
-  background-color: rgba(0, 26, 51, 0.7);
+
+  /* background-color: rgba(0, 26, 51, 0.7); */
   border: 1px solid var(--secondary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--fondoDIV) 100%);
+  padding: 15px;
+  text-align: center;
+  color: white;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -122,9 +134,13 @@ body {
   margin-top: 5px;
 }
 
+
+/****** carrito *******/
+
 .cart-button {
   position: relative;
-  background-color: rgba(0, 26, 51, 0.7);
+  /* background-color: rgba(0, 26, 51, 0.7);*/
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--fondoDIV) 100%);
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
   padding: 5px 10px;
@@ -141,6 +157,8 @@ body {
   background-color: var (--accent-color);
 }
 
+
+/****** encabezado principal *******/
 .main-header {
   grid-column: 1 / span 3;
   background-color: rgba(0, 26, 51, 0.5);
@@ -172,6 +190,16 @@ h1 {
   display: inline-block;
 }
 
+h4 {
+  color: var(--ligh-color);
+  text-shadow: 3px 3px 5px rgba(0, 204, 255, 0.5);
+  margin-bottom: 20px;
+  position: relative;
+  margin-right: 40px;
+  text-align: center;
+}
+
+/***** linea de separación ******/
 h1::before,
 h1::after {
   content: '';
@@ -202,9 +230,13 @@ h1::after {
   grid-column: 3;
 }
 
-.company-info,
-.videos-info {
-  background-color: rgba(0, 26, 51, 0.7);
+/*********************  sección izquierda  ***********************/
+
+/******** empresa  y logo bienvenida******/
+.company-info {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--fondoDIV) 100%);
+  color: var(--light-color);
+
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   padding: 25px;
@@ -220,13 +252,14 @@ h1::after {
   padding: 15px;
 }
 
+/******* sección de historia ********/
 .history-section {
   background-color: rgba(0, 26, 51, 0.7);
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   padding: 25px;
   margin-bottom: 30px;
-  height: 62%;
+  height: 72%;
   position: relative;
   overflow: hidden;
 }
@@ -249,6 +282,7 @@ h1::after {
   display: inline-block;
 }
 
+/******** linea de separación  ********/
 .history-section h2::after {
   content: '';
   position: absolute;
@@ -259,6 +293,52 @@ h1::after {
   background-color: var(--secondary-color);
 }
 
+/********************* seccion derecha **********************/
+
+/*** sección de videos ***/
+.videos-info {
+  background-color: rgba(0, 26, 51, 0.7);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+
+}
+
+/**** sección de noticias  ****/
+.sidebar {
+  background-color: rgba(0, 26, 51, 0.7);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 20px;
+  height: 62%;
+  width: 100%;
+  /* En móviles ocupa todo el ancho */
+  max-width: 400px;
+  /* No supera este tamaño en pantallas grandes */
+}
+
+.sidebar h3 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 204, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.sidebar-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/****************** sección  central   de robots ********************/
 .robot-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -267,14 +347,19 @@ h1::after {
 }
 
 .robot-card {
+  width: 100%;
+  /* Se ajusta al contenedor */
+  max-width: 300px;
+  /* No supera este tamaño en pantallas grandes */
+  height: auto;
   background-color: rgba(0, 26, 51, 0.7);
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
-  width: 300px; /* Set a fixed width */
-  height: 600px; /* Set a fixed height */
+  /* width: 300px; */
+  /* height: 650px; */
 }
 
 .robot-card:hover {
@@ -289,6 +374,15 @@ h1::after {
   border-bottom: 1px solid var(--secondary-color);
   transition: all 0.3s ease;
 }
+
+.robot-card video {
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 102, 255, 0.1);
+  border-bottom: 1px solid var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
 
 .robot-card:hover img {
   opacity: 0.8;
@@ -333,7 +427,7 @@ h1::after {
   padding: 8px 15px;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.5s;
   width: 100%;
   margin-top: 10px;
 }
@@ -342,34 +436,9 @@ h1::after {
   background-color: var(--secondary-color);
 }
 
-.sidebar {
-  background-color: rgba(0, 26, 51, 0.7);
-  border: 1px solid var(--secondary-color);
-  border-radius: 10px;
-  padding: 20px;
-  height: 50%;
-}
 
-.sidebar h3 {
-  color: var(--secondary-color);
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 204, 255, 0.3);
-  padding-bottom: 10px;
-}
 
-.sidebar-item {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
+/******************  pie de página  *******************/
 footer {
   grid-column: 1 / span 3;
   background-color: rgba(0, 10, 20, 0.8);
@@ -388,6 +457,11 @@ footer {
 .footer-links {
   list-style: none;
   padding: 0;
+}
+
+.enlaces-medios {
+  list-style: none;
+  padding-left: 80px;
 }
 
 .footer-links li {
@@ -425,7 +499,7 @@ footer {
   font-size: 0.8rem;
 }
 
-/* Modal Styles */
+/************ estilos del Modal ***********/
 .robot-modal .modal-content {
   background-color: rgba(228, 10, 39, 0.95);
   border: 1px solid var(--secondary-color);
@@ -488,21 +562,21 @@ footer {
   color: white;
 }
 
-/* Flying animation */
+/* animacion vuela al carro   NO FUNCIONA */
 @keyframes flyToCart {
   0% {
-      transform: scale(1);
-      opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 
   50% {
-      transform: scale(0.5) translateY(-100px) translateX(var(--fly-x));
-      opacity: 0.7;
+    transform: scale(0.5) translateY(-100px) translateX(var(--fly-x));
+    opacity: 0.7;
   }
 
   100% {
-      transform: scale(0.1) translateY(-200px) translateX(var(--fly-x));
-      opacity: 0;
+    transform: scale(0.1) translateY(-200px) translateX(var(--fly-x));
+    opacity: 0;
   }
 }
 
@@ -513,36 +587,23 @@ footer {
   animation: flyToCart 1s forwards;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .main-grid-container {
-      grid-template-columns: 1fr;
-  }
 
-  .left-column,
-  .center-column,
-  .right-column,
-  .main-header,
-  .navbar,
-  footer {
-      grid-column: 1;
-  }
 
-  .countdown-container {
-      width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-  }
-}
-
-/* ventana deseos */
-input{
+/*********************** ventana LISTA deseos *********************/
+input {
   border-radius: 10px;
   padding: 5px;
   margin: 10px;
   box-shadow: 2px 2px 4px grey;
   border-color: #053c53;
+}
+
+.sidebar-deseos {
+  background-color: rgba(0, 26, 51, 0.7);
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 20px;
+  height: 300px;
 }
 
 img {
@@ -552,16 +613,38 @@ img {
 
 /* estilo de la tarea completada */
 #completa {
-  font-weight:bolder;
+  font-weight: bolder;
   font-style: oblique;
   color: #748ca2;
 }
 
 .deseado {
-  font-weight:bolder;
-  
+  font-weight: bolder;
+  width: 100%;
   color: #114d67;
+  display: flex;
+  align-items: center;
+  /* Alinea verticalmente */
+  gap: 15px;
+  /* Espacio entre elementos */
+  padding: 10px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
+
+/* Estilos base para las imágenes de ventana3 */
+.imagenVentana3 {
+  width: 100%;
+  max-width: 450px; /* Limita el tamaño máximo */
+  min-width: 200px; /* evita que la imagen sea menor a 200px */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 
 /* hover para los botones positivos/ok 
 la idea era también para los checkbox, pero es bastante más complicado de lo que pensaba
@@ -587,15 +670,15 @@ button#peligro:hover {
 
 @keyframes parpadeo {
   0% {
-      border-color: rgb(223, 52, 9);
+    border-color: rgb(223, 52, 9);
   }
 
   50% {
-      border-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
   }
 
   100% {
-      border-color: rgb(223, 52, 9);
+    border-color: rgb(223, 52, 9);
   }
 }
 
@@ -612,9 +695,10 @@ button {
   border-color: rgb(228, 17, 17);
   ;
 }
+
 /* hago una clase para que se comparta y sean iguales los div que contienen
-tanto tareas completadas o no */
-.espacioTareas {
+tanto robots completados no */
+.espacioRobots {
 
   display: flex;
   flex-direction: column;
@@ -626,4 +710,198 @@ tanto tareas completadas o no */
   border-radius: 10px;
   box-shadow: 2px 2px 4px grey;
   background-color: rgb(240, 240, 240);
+}
+
+
+
+
+/******** ajustes reswponsivos ********/
+
+
+
+
+
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 992px) {
+  .main-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+
+    .imagenVentana3 {
+      max-width: 400px;
+    }
+
+
+  .left-column,
+  .center-column,
+  .right-column {
+    grid-column: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .robot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .history-section,
+  .sidebar {
+    height: auto;
+  }
+}
+
+/* Ajustes para pantallas pequeñas (tablets) */
+@media (max-width: 768px) {
+  
+  .imagenVentana3 {
+    max-width: 300px;
+  }
+
+.main-grid-container {
+  grid-template-columns: 1fr;
+  /* Se apilan las columnas */
+}
+
+.left-column,
+.center-column,
+.right-column {
+  width: 100%;
+}
+
+.robot-grid {
+  grid-template-columns: 1fr;
+  /* Una columna en móviles */
+}
+}
+
+
+
+
+@media (max-width: 480px) {
+  .main-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column,
+  .center-column,
+  .right-column,
+  .main-header,
+  .navbar,
+  footer {
+    grid-column: 1 / span 1;
+  }
+
+  .robot-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .robot-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .history-section {
+    height: auto;
+    margin-bottom: 5px;
+  }
+
+  .countdown-container {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+/* Ajustes extra para móviles muy pequeños */
+@media (max-width: 375px) {
+  .imagenVentana3 {
+    max-width: 95%;
+  }
+}
+
+
+  .robot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .robot-card {
+    max-width: 100%;
+  }
+
+  .countdown-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .countdown-number {
+    font-size: 1.2rem;
+  }
+
+  .social-icons a {
+    margin-right: 10px;
+  }
+}
+
+
+/* Añade esto a tu archivo CSS */
+
+
+
+/* Añade esto a tu archivo CSS o en el <style> del head */
+
+/* Estilos base para móviles */
+.centrado {
+  display: flex;
+  margin-top: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.centrado img {
+  max-width: 90%;
+  height: auto;
+}
+
+.centrado h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.centrado form {
+  width: 100%;
+  max-width: 320px;
+}
+
+.centrado input {
+  width: 100%;
+  margin: 8px 0;
+}
+
+/* Ajustes para tablets y superiores */
+@media (min-width: 768px) {
+  .centrado {
+    margin-top: 60px;
+  }
+  
+  .centrado h1 {
+    font-size: 1.8rem;
+  }
+  
+  .centrado img {
+    max-width: 300px;
+  }
+  
+  .centrado form {
+    max-width: 400px;
+  }
 }

@@ -9,8 +9,9 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui/1.13.2/themes/base/jquery-ui.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html" title="Portada de bienvenida">CITDAI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button title="Abrir menú" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,14 +29,17 @@
                         <a class="nav-link" href="#"><i class="bi bi-house-door"></i> Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="inicio_sesion_ventana1.html" title="Ir a zona cliente"><i class="bi bi-robot"></i> Zona
+                        <a class="nav-link" href="inicio_sesion_ventana1.html" title="Ir a zona cliente"><i
+                                class="bi bi-robot"></i> Zona
                             cliente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#historia" title="Leer nuestra historia, ¿quiénes somos?"><i class="bi bi-clock-history"></i> Historia</a>
+                        <a class="nav-link" href="#historia" title="Leer nuestra historia, ¿quiénes somos?"><i
+                                class="bi bi-clock-history"></i> Historia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto" title="Nuestras formas de contacto"><i class="bi bi-envelope"></i> Contacto</a>
+                        <a class="nav-link" href="contacto.html" title="Nuestras formas de contacto"><i
+                                class="bi bi-envelope"></i> Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -96,92 +101,125 @@
 
         <!-- Center Column - Robots Grid -->
         <div class="center-column">
-            <h2 class="text-center mb-4" style="color: var(--secondary-color);" id="robots">Nuestros Modelos</h2>
+            <h2 class="text-center mb-4" style="color: var(--secondary-color); margin-top: 40px;" id="robots">Nuestros
+                Modelos</h2>
             <div class="robot-grid">
 
+                <!-- Tarjetas Robots -->
                 <!-- Robot 1 -->
-                <!-- Robot Card -->
+
                 <div class="robot-card">
                     <span class="robot-tag">Nuevo</span>
+                    <h4>modelo Alpha</h4>
                     <img src="imagenes_robots/robot1.jpeg" alt="robot1" width="300px">
                     <button class="robot-action-btn view-details" data-robot-id="1">Ver Detalles</button>
-                   
-                  
+
+
                 </div>
 
-               
-               
+
+
 
                 <!-- Robot 2 -->
                 <div class="robot-card">
-                  <span class="robot-tag">Nuevo</span>
-                  <img src="imagenes_robots/robot2.jpeg" alt="robot2" width="300px">
-                  <button class="robot-action-btn view-details" data-robot-id="2">Ver Detalles</button>
-                 
+                    <span class="robot-tag">Oferta</span>
+                    <h4>modelo Beta</h4>
+                    <img src="imagenes_robots/robot2.jpeg" alt="robot2" width="300px">
+                    <button class="robot-action-btn view-details" data-robot-id="2">Ver Detalles</button>
+
                 </div>
 
 
 
                 <!-- Robot 3 -->
                 <div class="robot-card">
-                  <span class="robot-tag">Nuevo</span>
-                  <img src="imagenes_robots/robot3.jpeg" alt="robot3" width="300px">
-                  <button class="robot-action-btn view-details" data-robot-id="3">Ver Detalles</button>
-                 
+                    <span class="robot-tag">Outlet</span>
+                    <h4>modelo Gamma</h4>
+                    <img src="imagenes_robots/robot3.jpeg" alt="robot3" width="300px">
+                    <button class="robot-action-btn view-details" data-robot-id="3">Ver Detalles</button>
+
                 </div>
 
                 <!-- Robot 4 -->
                 <div class="robot-card">
-                  <span class="robot-tag">Nuevo</span>
-                  <img src="imagenes_robots/robot4.jpeg" alt="robot4" width="300px">
-                  <button class="robot-action-btn view-details" data-robot-id="4">Ver Detalles</button>
-                 
+                    <span class="robot-tag">Nuevo</span>
+                    <h4>modelo Delta</h4>
+                    <img src="imagenes_robots/robot4.jpeg" alt="robot4" width="300px">
+                    <button class="robot-action-btn view-details" data-robot-id="4">Ver Detalles</button>
+
                 </div>
             </div>
         </div>
+        <!-- añadido -->
 
-<!-- Modal -->
-<div class="modal fade" id="robotDetailsModal" tabindex="-1" aria-labelledby="robotModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content robot-modal">
-      <div class="modal-header texto" >
-        <h5 class="modal-title" id="robotModalTitle">Detalles del Robot</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="text-center mb-3">
-          <img id="robotModalImage" src="" width="300px" alt="Imagen del Robot" class="img-fluid">
+        <!-- Modal -->
+        <div class="modal fade" id="robotDetailsModal" tabindex="-1" aria-labelledby="robotModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content robot-modal">
+                    <div class="modal-header texto">
+                        <h5 class="modal-title" id="robotModalTitle">Detalles del Robot</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-3">
+                            <video id="robotModalVideo" width="100%" loop autoplay muted class="img-fluid">
+                                <source src="" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+
+                            <!-- <img id="robotModalImage" src="" width="300px" alt="Imagen del Robot" class="img-fluid"> -->
+                        </div>
+                        <h3 class="texto" id="robotModalName"></h3>
+
+
+                        <p class="texto" id="robotModalDescription"></p>
+                        <div class="robot-specs">
+
+                            <div class="robot-spec-item">
+                                <span class="robot-spec-name">Precio:</span>
+                                <!-- <p id="robotModalPrice" class="robot-price"></p> -->
+                                <span class="texto" id="robotModalPrice"></span>
+                            </div>
+
+                            <div class="robot-spec-item">
+                                <span class="robot-spec-name">Autonomía:</span>
+                                <span class="texto" id="robotModalAutonomy"></span>
+                            </div>
+
+                            <div class="robot-spec-item">
+                                <span class="robot-spec-name">Procesador:</span>
+                                <span class="texto" id="robotModalProcessor"></span>
+                            </div>
+
+                            <div class="robot-spec-item">
+                                <span class="robot-spec-name">Capacidades:</span>
+                                <span class="texto" id="robotModalCapabilities"></span>
+                            </div>
+
+                            <div class="robot-spec-item">
+                                <span class="robot-spec-name">Garantía:</span>
+                                <span class="texto" id="robotModalWarranty"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <span style="margin-right: 0px;"></span>
+                        <!-- añadir unidades de robots al carrito -->
+                        <input type="number" id="quantity" name="quantity" min="1" max="5" value="1"
+                            style="width: 50px;">
+
+                        <button type="button" class="btn btn-primary add-to-cart" id="addToCartBtn"
+                            data-bs-toggle="tooltip" title="Añadir las unidades indicadas al carrito">Añadir al
+                            Carrito</button>
+                        <button type="button" class="btn add-to-favorites" id="addToFavoritesBtn"
+                            data-bs-toggle="tooltip" title="Añadir a la lista de deseos">
+                            Lo deseo</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h3 class="texto" id="robotModalName"></h3>
-        <p id="robotModalPrice" class="robot-price"></p>
-        <p class="texto" id="robotModalDescription"></p>
-        <div class="robot-specs">
-          <div class="robot-spec-item">
-            <span class="robot-spec-name">Autonomía:</span>
-            <span   class="texto" id="robotModalAutonomy"></span>
-          </div>
-          <div class="robot-spec-item">
-            <span class="robot-spec-name">Procesador:</span>
-            <span class="texto" id="robotModalProcessor"></span>
-          </div>
-          <div class="robot-spec-item">
-            <span class="robot-spec-name">Capacidades:</span>
-            <span class="texto" id="robotModalCapabilities"></span>
-          </div>
-          <div class="robot-spec-item">
-            <span class="robot-spec-name">Garantía:</span>
-            <span class="texto" id="robotModalWarranty"></span>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary add-to-cart" id="addToCartBtn">Añadir al Carrito</button>
-        <button type="button" class="btn add-to-favorites" id="addToFavoritesBtn">Añadir a Favoritos</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -193,22 +231,22 @@
             <!-- Top bar with countdown and cart -->
             <div class="top-bar d-flex justify-content-between align-items-center">
                 <div class="countdown-container">
-                    <div class="countdown-title">Lanzamiento el 1 de marzo, quedan:</div>
+                    <div class="countdown-title">Lanzamiento el 1 de abril, quedan:</div>
                     <div class="countdown">
                         <div class="countdown-segment">
-                            <div class="countdown-number" id="days">8</div>
+                            <div class="countdown-number" id="days"></div>
                             <div class="countdown-label">Días</div>
                         </div>
                         <div class="countdown-segment">
-                            <div class="countdown-number" id="hours">22</div>
+                            <div class="countdown-number" id="hours"></div>
                             <div class="countdown-label">Horas</div>
                         </div>
                         <div class="countdown-segment">
-                            <div class="countdown-number" id="minutes">5</div>
+                            <div class="countdown-number" id="minutes"></div>
                             <div class="countdown-label">Min</div>
                         </div>
                         <div class="countdown-segment">
-                            <div class="countdown-number" id="seconds">5</div>
+                            <div class="countdown-number" id="seconds"></div>
                             <div class="countdown-label">Seg</div>
                         </div>
                     </div>
@@ -272,7 +310,7 @@
             <div class="sidebar">
                 <h3>Innovación</h3>
                 <div class="sidebar-item">
-                    <h4 style="color: var(--secondary-color);">Tecnología de punta</h4>
+                    <h4 style="color: var(--secondary-color);">Tecnología punta</h4>
                     <p>Nuestros robots incorporan los últimos avances en IA y robótica, ofreciendo una experiencia sin
                         precedentes.</p>
                 </div>
@@ -290,65 +328,67 @@
                     <p>Nuestra compañía ha sido reconocida con el prestigioso premio Global Tech Innovation por nuestros
                         avances en robótica humanoide.</p>
                 </div>
+                <div class="sidebar-item">
 
-              
+                    <h5 style="color: var(--secondary-color);">Nuevo centro de I+D</h5>
+
+                    <p class="small">28 Ene, 2025</p>
+
+                    <p>Hemos inaugurado nuestro tercer centro de investigación y desarrollo en Tokio, expandiendo
+                        nuestra presencia global.</p>
+
+                </div>
+
+                <div class="sidebar-item">
+                    <h5 style="color: var(--secondary-color);">Robot asistente médico supera pruebas clínicas</h5>
+                    <p class="small">10 Mar, 2025</p>
+                    <p>Nuestro modelo de robot asistente para hospitales ha completado con éxito las pruebas clínicas,
+                        demostrando su capacidad para asistir a personal médico en tareas esenciales.</p>
+
+
+                </div>
+
+                <!-- <div class="sidebar-item">
+                    <h5 style="color: var(--secondary-color);">CITDAI colabora con la Agencia Espacial Europea</h5>
+                    <p class="small">5 Mar, 2025</p>
+                     <p>Hemos firmado un acuerdo con la ESA para desarrollar robots autónomos diseñados para misiones de
+                        exploración en entornos extremos, incluyendo la Luna y Marte.</p>
+                </div> -->
+
+
+
+
             </div>
         </div>
     </div>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="footer-title">Sobre CITDAI</div>
-                    <p>Pioneros en robótica humanoide avanzada, comprometidos con la creación de tecnología que mejora
-                        vidas.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
 
-                <div class="col-md-4">
-                    <div class="footer-title">Enlaces Rápidos</div>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-                        <li><a href="#robots"><i class="bi bi-chevron-right"></i> Nuestros Robots</a></li>
-                        <li><a href="#historia"><i class="bi bi-chevron-right"></i> Historia</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Términos y Condiciones</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Política de Privacidad</a></li>
-                    </ul>
-                </div>
+    <!-- inserción de footer-->
 
-                <div class="col-md-4" id="contacto">
-                    <div class="footer-title">Contacto</div>
-                    <ul class="footer-links">
-                      <img src="logos_ iconos/ok Firefly.png" alt="logo CITDAI" width="100px">
-                      <br>
-                      <li></li>
-                        <li><i class="bi bi-geo-alt-fill"></i> Avenida Tecnológica 123, EL Burgo de Ebro, Zaragoza. España</li>
-                        <li><i class="bi bi-telephone-fill"></i> +1 (555) 123-4567</li>
-                        <li><i class="bi bi-envelope-fill"></i> info@techdevai.es</li>
-                    </ul>
-                </div>
-            </div>
+    <footer id="footer">
 
-            <div class="text-center copyright">
-                &copy; 2025 CITDAI Technologies. Todos los derechos reservados. Página creada por <span><a href="https://www.techdevai.es">Óscar Racero alias TechDevAI</a></span>
-            </div>
-        </div>
     </footer>
- 
 
     <script>
+
+
+        //llamada al footer
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+
+
+
+        // Función de cuenta atrás para el lanzamiento
         cuentatras();
+        // Inicialización de los modales de Bootstrap, que he elegido para mostrar los detalles de los robots
         document.addEventListener('DOMContentLoaded', function () {
             const viewDetailsButtons = document.querySelectorAll('.view-details');
             const robotDetailsModal = new bootstrap.Modal(document.getElementById('robotDetailsModal'));
             const robotModalTitle = document.getElementById('robotModalTitle');
-            const robotModalImage = document.getElementById('robotModalImage');
+            // const robotModalImage = document.getElementById('robotModalImage');
+            const robotModalVideo = document.getElementById('robotModalVideo');
             const robotModalName = document.getElementById('robotModalName');
             const robotModalPrice = document.getElementById('robotModalPrice');
             const robotModalDescription = document.getElementById('robotModalDescription');
@@ -360,23 +400,24 @@
             const addToFavoritesBtn = document.getElementById('addToFavoritesBtn');
             const cartButton = document.getElementById('cartButton');
             const cartBadge = cartButton.querySelector('.badge');
-
+            // Contador de robots en el carrito inicializado a 0
             let cartCount = 0;
-
+            // añado un  Event listener para mostrar los detalles de los robots
             viewDetailsButtons.forEach(button => {
-              button.addEventListener('click', function () {
-              const robotId = this.getAttribute('data-robot-id');
-              // Fetch robot details based on robotId (this is just a placeholder, replace with actual data fetching logic)
-              const robotDetails = {
-                1: {
-                    name: 'Modelo Alpha',
-                    price: '39.999€',
-                    description: 'Nuestro modelo de hogar avanzado, diseñado para asistencia doméstica completa y compañía.',
-                    autonomy: '24 horas',
-                    processor: 'Intel i9',
+                button.addEventListener('click', function () {
+                    const robotId = this.getAttribute('data-robot-id');
+                    // Fetch robot details based on robotId (this is just a placeholder, replace with actual data fetching logic)
+                    const robotDetails = {
+                        1: {
+                            name: 'Modelo Alpha',
+                            price: '39.999€',
+                            description: 'Nuestro modelo de hogar avanzado, diseñado para asistencia doméstica completa y compañía.',
+                            autonomy: '24 horas',
+                            processor: 'Intel i9',
                             capabilities: 'Asistencia doméstica, Compañía',
                             warranty: '2 años',
-                            image: 'imagenes_robots/robot1.jpeg'
+                            // image: 'imagenes_robots/robot1.jpeg',
+                            video: 'videos/robotAlphaCae.mp4'
                         },
                         2: {
                             name: 'Modelo Beta',
@@ -386,7 +427,7 @@
                             processor: 'AMD Ryzen 9',
                             capabilities: 'Seguridad, Vigilancia',
                             warranty: '3 años',
-                            image: 'imagenes_robots/robot2.jpeg'
+                            video: 'videos/brazo1.mp4'
                         },
                         3: {
                             name: 'Modelo Gamma',
@@ -396,7 +437,7 @@
                             processor: 'Apple M1',
                             capabilities: 'Asistencia empresarial',
                             warranty: '2 años',
-                            image:  'imagenes_robots/robot3.jpeg'
+                            video: 'videos/loop robot.mp4'
                         },
                         4: {
                             name: 'Modelo Delta',
@@ -406,14 +447,15 @@
                             processor: 'Qualcomm Snapdragon',
                             capabilities: 'Cuidados médicos, Acompañamiento',
                             warranty: '5 años',
-                            image:  'imagenes_robots/robot4.jpeg'
+                            video: 'videos/Deltamovimiento.mp4'
                         }
                     };
 
                     const details = robotDetails[robotId];
                     robotModalTitle.textContent = details.name;
-                    robotModalImage.src = details.image;
-                    
+                    // robotModalImage.src = details.image;
+                    robotModalVideo.src = details.video;
+
                     robotModalPrice.textContent = details.price;
                     robotModalDescription.textContent = details.description;
                     robotModalAutonomy.textContent = details.autonomy;
@@ -425,49 +467,96 @@
                 });
             });
 
-            addToCartBtn.addEventListener('click', function () {
-                cartCount++;
-                cartBadge.textContent = cartCount;
-                const flyingImage = robotModalImage.cloneNode(true);
-                flyingImage.classList.add('flying');
-                document.body.appendChild(flyingImage);
-                const cartRect = cartButton.getBoundingClientRect();
-                const imageRect = robotModalImage.getBoundingClientRect();
-                flyingImage.style.setProperty('--fly-x', `${cartRect.left - imageRect.left}px`);
-                flyingImage.addEventListener('animationend', () => {
-                    flyingImage.remove();
+            // // Añadir robots al carrito unidades seleccionadas y animación para que se vea que se añaden los robots
+            // addToCartBtn.addEventListener('click', function () {
+            //     const quantity = parseInt(document.getElementById('quantity').value);
+            //     cartCount += quantity;
+            //     cartBadge.textContent = cartCount;
+            //     const flyingImage = robotModalImage.cloneNode(true);
+            //     flyingImage.classList.add('flying');
+            //     document.body.appendChild(flyingImage);
+            //     const cartRect = cartButton.getBoundingClientRect();
+            //     const imageRect = robotModalImage.getBoundingClientRect();
+            //     flyingImage.style.setProperty('--fly-x', `${cartRect.left - imageRect.left}px`);
+            //     flyingImage.addEventListener('animationend', () => {
+            //         flyingImage.remove();
+            //     });
+            // });
+
+            // Animación de añadir al carrito
+            $(document).on("click", ".add-to-cart", function () {
+                let imgClone = $(".robot img").first().clone().offset({
+                    top: $(".robot").first().offset().top,
+                    left: $(".robot").first().offset().left
+                }).css({
+                    'opacity': '0.8',
+                    'position': 'absolute',
+                    'z-index': '1000',
+                    'width': '100px'
+                }).appendTo("body").animate({
+                    top: $("#countdown").offset().top + 10,
+                    left: $("#countdown").offset().left + 10,
+                    width: 50,
+                    opacity: 0
+                }, 1000, function () {
+                    $(this).remove();
                 });
             });
 
+            // Marcamos robot como favorito
             addToFavoritesBtn.addEventListener('click', function () {
                 this.classList.toggle('active');
             });
+
+            // // Añadir robots a la lista de deseos
+            // document.addEventListener('DOMContentLoaded', function () {
+            //     // recogemos en variables los elementos del DOM que vamos a necesitar 
+            //     const addToFavoritesBtn = document.getElementById('addToFavoritesBtn');
+            //     const robotModalName = document.getElementById('robotModalName');
+            //     const robotModalImage = document.getElementById('robotModalImage');
+            //     // Añadimos un Event Listener al botón de añadir a favoritos
+            //     addToFavoritesBtn.addEventListener('click', function () {
+            //         // Recuperar el nombre del robot del modal
+            //         const robotName = robotModalName.textContent;
+            //         // Recuperar la imagen del robot del modal
+            //         const robotImage = robotModalImage.src;
+            //         // Recuperar la lista de favoritos del almacenamiento local
+            //         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+            //         if (this.classList.toggle('active')) {
+            //             // Añadir a favoritos si no está en la lista
+            //             if (!favorites.includes(robotName)) {
+            //                 // Añadir el robot a la lista de favoritos
+            //                 favorites.push(robotName);
+            //                 //añaadir la imagen del robot a la lista de favoritos
+            //                 favorites.push(robotImage);
+            //             }
+            //         } else {
+            //             // Eliminar de favoritos si está en la lista 
+            //             favorites = favorites.filter(favorite => favorite !== robotName);
+            //             //eliminar la imagen del robot de la lista de favoritos
+            //             favorites = favorites.filter(favorite => favorite !== robotImage);
+
+            //         }
+            //         // Guardar la lista de favoritos en el almacenamiento local en un formato JSON
+            //         localStorage.setItem('favorites', JSON.stringify(favorites));
+            //     });
+            // });
+
         });
 
-
-        // Animación de añadir al carrito
-        $(document).on("click", ".add-to-cart", function () {
-            let imgClone = $(".robot img").first().clone().offset({
-                top: $(".robot").first().offset().top,
-                left: $(".robot").first().offset().left
-            }).css({
-                'opacity': '0.8',
-                'position': 'absolute',
-                'z-index': '1000',
-                'width': '100px'
-            }).appendTo("body").animate({
-                top: $("#countdown").offset().top + 10,
-                left: $("#countdown").offset().left + 10,
-                width: 50,
-                opacity: 0
-            }, 1000, function () {
-                $(this).remove();
+        // Inicialización de los tooltips de Bootstrap, para que salga información al pasar el ratón por encima de los botones
+        document.addEventListener('DOMContentLoaded', function () {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         });
 
+
         function cuentatras() {
             // Configuración de la fecha de lanzamiento
-            const launchDate = new Date("March 1, 2025 00:00:00").getTime();
+            const launchDate = new Date("April 1, 2025 00:00:00").getTime();
 
             // Actualiza la cuenta atrás cada segundo
             const countdownInterval = setInterval(function () {
@@ -486,15 +575,21 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+                // Formatea los minutos y segundos para que siempre tengan dos dígitos
+                const formattedMinutes = minutes.toString().padStart(2, '0');
+                const formattedSeconds = seconds.toString().padStart(2, '0');
+                const formattedHours = hours.toString().padStart(2, '0');
+
                 // Muestra los resultados en los elementos correspondientes
                 document.getElementById("days").innerText = days;
-                document.getElementById("hours").innerText = hours;
-                document.getElementById("minutes").innerText = minutes;
-                document.getElementById("seconds").innerText = seconds;
+                document.getElementById("hours").innerText = formattedHours;
+                document.getElementById("minutes").innerText = formattedMinutes;
+                document.getElementById("seconds").innerText = formattedSeconds;
             }, 1000);
         }
 
         document.addEventListener('DOMContentLoaded', cuentatras);
+
 
 
     </script>

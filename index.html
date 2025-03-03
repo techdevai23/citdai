@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de inicio - Bienvenido a CITDAI</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -18,7 +20,7 @@
         }
 
         body::after {
-            content: "Entra y descubrenos";
+            content: "Entra y descúbrenos";
             position: fixed;
             bottom: 10px;
             left: 50%;
@@ -35,22 +37,24 @@
         body:hover::after {
             opacity: 1;
         }
+
         .gallery-container {
             position: relative;
             width: 100%;
             height: 100vh;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            /* Utilizo un grid de 12x12 para mayor flexibilidad */
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
             gap: 4px;
         }
-        
+
         .image-cell {
             position: relative;
             overflow: hidden;
             background-color: #111;
         }
-        
+
         .image-wrapper {
             position: absolute;
             top: 0;
@@ -60,45 +64,25 @@
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
-        
+
         .image-wrapper.active {
             opacity: 1;
             z-index: 1;
         }
-        
+
         .image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        /* Definir varios tamaños de celdas */
-        /* .cell-1x1 {
-            grid-column: span 1;
-            grid-row: span 1;
-        } */
-        
-        .cell-2x1 {
-            grid-column: span 2;
-            grid-row: span 1;
-           
-        }
-        
-        .cell-1x2 {
-            grid-column: span 1;
-            grid-row: span 2;
-           
-        }
 
-        .cell-2x2 {
-            grid-column: span 2;
-            grid-row: span 2;
-            
+        /* Celda fija para el logo */
+        .logo-cell {
+            z-index: 2;
         }
-        
-       
     </style>
 </head>
+
 <body>
     <div class="gallery-container" id="gallery">
         <!-- Las celdas de imagen se generarán mediante JavaScript -->
@@ -106,134 +90,489 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Colección de imágenes de muestra - reemplaza con tus rutas de imágenes reales
-            const images = [
-                'imagenes_ portada/exterior_grande169.jpeg',
-                'logos_ iconos/solo letras169.jpeg',
-                'imagenes_ portada/exterior_jardin169.jpeg',
-                'imagenes_ portada/fabirca_pie916.jpeg',
-                'imagenes_ portada/fabrica_sentados916.jpeg',
-                'imagenes_ portada/laboratorio_grande169.jpeg',
-                'imagenes_ portada/laboratorio_vigilando169.jpeg',
-                'imagenes_ portada/laboratorio169.jpeg',
-                'imagenes_ portada/sal_recreo169.jpeg',
-                'imagenes_ portada/sala169.jpeg',
-                'logos_ iconos/logo subtitulo169.png'
+        $(document).ready(function () {
+            // Colección de imágenes - organizo por tipo para mayor control
+            const images = {
+                horizontal: [
+                    'imagenes_ portada/exterior_grande169.jpeg',
+                    'imagenes_ portada/exterior_jardin169.jpeg',
+                    'imagenes_ portada/enfila-3d-rendering-of-a-factory-with-an-asse169.jpeg',
+                    'imagenes_ portada/grandea-3d-rendering-of-a-factory-with-an-asse169.jpeg',
+                    'imagenes_ portada/ciudad3a-photo-of-a-futuristic-blade-runner-cit_X169.jpeg',
+                    'imagenes_ portada/ciudad4a-photograph-of-a-futuristic-blade-runne169.jpeg',
+                    'imagenes_ portada/centro1a-photo-of-the-exterior-of-the-techdevai_169.jpeg',
+                    'imagenes_ portada/centro2a-photo-of-the-exterior-of-the-techdevai_169.jpeg',
+                    'imagenes_ portada/centro3a-photo-of-the-exterior-of-the-techdeva169.jpeg',
+                    'imagenes_ portada/laboratorio_grande169.jpeg',
+                    'imagenes_ portada/laboratorio_vigilando169.jpeg',
+                    'imagenes_ portada/laboratorio169.jpeg',
+                    'imagenes_ portada/sal_recreo169.jpeg',
+                    'imagenes_ portada/sala169.jpeg',
+                    'imagenes_ portada/a-3d-rendering-of-a-factory-with-an-asse_169.jpeg',
+                    'imagenes_ portada/pequeños-3d-render-of-a-factory-with-a-minimali_tub169.jpeg',
+                    'imagenes_ portada/exterior3a-photo-of-the-exterior-of-the-techdevai169.jpeg',
+                    'imagenes_ portada/exterior4a-photo-of-the-exterior-of-the-techdevai169.jpeg',
+                    'imagenes_ portada/ciudad1a-photo-of-a-futuristic-blade-runner-cit_169.jpeg',
+                    'imagenes_ portada/ciudad2a-photograph-of-a-futuristic-blade-runne_o169.jpeg',
+                    'imagenes_ portada/laboratorio169.jpeg',
+                    'imagenes_ portada/sal_recreo169.jpeg',
+                    'imagenes_ portada/sala169.jpeg'
+
+                ],
+                vertical: [
+                    'imagenes_ portada/916poniendo-mesa2-aspirando-a-3d-rendering-of-a-modern-minimalist-h.jpeg',
+                    'imagenes_ portada/ciudad1a916-photo-of-a-futuristic-blade-runner-cit_169.jpeg',
+                    'imagenes_ portada/fabrica_sentados916.jpeg',
+                    'imagenes_ portada/916poniendo-mesa-aspirando-a-3d-rendering-of-a-modern-minimalist-h.jpeg',
+                    'imagenes_ portada/fabrica_robots916.png',
+                    'imagenes_ portada/916aspirando-a-3d-rendering-of-a-minimalist-modern.jpeg',
+                    'imagenes_ portada/fabirca_pie916.jpeg',
+                    'imagenes_ portada/ciudad2a916-photograph-of-a-futuristic-blade-runne_o169.jpeg'
+
+                ],
+                logo: 'logos_ iconos/logo subtitulo169.png'
+            };
+
+            // Defino bloques con sus dimensiones
+            const blockTypes = [
+                { width: 4, height: 4, acceptsVertical: false },  // Grande 4x4
+                { width: 4, height: 4, acceptsVertical: false },  // Grande 4x4 (duplicado para mayor probabilidad)
+                { width: 2, height: 4, acceptsVertical: true },   // Vertical 2x4
+                { width: 4, height: 2, acceptsVertical: false },  // Horizontal 4x2
+                { width: 2, height: 2, acceptsVertical: false },  // Pequeño 2x2
+                { width: 2, height: 4, acceptsVertical: true },   // Vertical 2x4
+                { width: 4, height: 8, acceptsVertical: true } // Vertical 4x8
             ];
 
-            // Filtrar imágenes por formato
-            const images16x9 = images.filter(src => src.includes('169'));
-            const images9x16 = images.filter(src => src.includes('916'));
-            const logos = images.filter(src => src.includes('111'));
+            // Variables para gestionar células e imágenes
+            let activeImages = [];
+            let logoPosition = null;
+            let cells = [];
 
-            
-            // Definir configuraciones de celdas
-            const cellConfigurations = [
-                { class: 'cell-2x1', count: 2, images: images16x9.concat(logos) },   // Rectángulos horizontales
-                { class: 'cell-1x2', count: 2, images: images9x16},   // Rectángulos verticales
-                { class: 'cell-2x2', count: 2, images: images16x9 }    // Cuadrados
-            ];
-            
-            // Crear celdas de imagen
-            let cellCounter = 0;
-            cellConfigurations.forEach(config => {
-                for (let i = 0; i < config.count; i++) {
-                    const cell = $('<div>', {
-                        class: `image-cell ${config.class}`,
-                        id: `cell-${cellCounter}`
+            // Función para generar un layout aleatorio pero coherente
+            function generateRandomLayout() {
+                // Creo una matriz para representar mi grid (12x12)
+                // 0 = espacio vacío, 1 = espacio ocupado
+                const grid = Array(12).fill().map(() => Array(12).fill(0));
+
+                // Mezclo los tipos de bloques para aleatorizar
+                const shuffledTypes = [...blockTypes].sort(() => Math.random() - 0.5);
+
+                // Guardo información sobre los bloques colocados
+                const placedBlocks = [];
+                let blockId = 0;
+
+                // Aseguro que al menos haya un bloque para imágenes verticales
+                let hasVerticalBlock = false;
+
+                // Función para verificar si un bloque encaja en una posición
+                function blockFits(block, row, col) {
+                    if (row + block.height > 12 || col + block.width > 12) {
+                        return false;
+                    }
+
+                    for (let r = row; r < row + block.height; r++) {
+                        for (let c = col; c < col + block.width; c++) {
+                            if (grid[r][c] === 1) {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+
+                // Función para colocar un bloque en el grid
+                function placeBlock(block, row, col) {
+                    for (let r = row; r < row + block.height; r++) {
+                        for (let c = col; c < col + block.width; c++) {
+                            grid[r][c] = 1;
+                        }
+                    }
+
+                    placedBlocks.push({
+                        id: blockId++,
+                        type: block,
+                        row: row,
+                        col: col
                     });
-                    
-                    // Añadir dos contenedores de imagen a cada celda para el efecto de transición
+
+                    if (block.acceptsVertical) {
+                        hasVerticalBlock = true;
+                    }
+                }
+
+                // Intento colocar bloques aleatoriamente hasta que no pueda colocar más
+                let attempts = 0;
+                const maxAttempts = 1000; // Límite para evitar bucles infinitos
+
+                // Primera pasada: intentar colocar bloques grandes
+                for (let i = 0; i < shuffledTypes.length && attempts < maxAttempts; i++) {
+                    const block = shuffledTypes[i];
+
+                    // Para bloques grandes (4x4), intento colocarlos primero
+                    if (block.width === 4 && block.height === 4) {
+                        // Pruebo posiciones aleatorias
+                        for (let attempt = 0; attempt < 50 && attempts < maxAttempts; attempt++) {
+                            attempts++;
+                            // Genero posiciones alineadas con el grid (múltiplos de 4 para bloques grandes)
+                            const row = Math.floor(Math.random() * 3) * 4;
+                            const col = Math.floor(Math.random() * 3) * 4;
+
+                            if (blockFits(block, row, col)) {
+                                placeBlock(block, row, col);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Segunda pasada: bloques verticales y medianos
+                for (let i = 0; i < shuffledTypes.length && attempts < maxAttempts; i++) {
+                    const block = shuffledTypes[i];
+
+                    // Para bloques verticales, intento colocar al menos uno
+                    if (block.acceptsVertical) {
+                        // Intento posiciones aleatorias para el bloque vertical
+                        for (let attempt = 0; attempt < 50 && attempts < maxAttempts; attempt++) {
+                            attempts++;
+                            const row = Math.floor(Math.random() * (12 - block.height));
+                            const col = Math.floor(Math.random() * (12 - block.width));
+
+                            if (blockFits(block, row, col)) {
+                                placeBlock(block, row, col);
+                                hasVerticalBlock = true;
+                                break;
+                            }
+                        }
+                    }
+
+
+
+
+
+
+
+                    // Para otros bloques medianos (4x2)
+                    if (block.width === 4 && block.height === 2) {
+                        for (let attempt = 0; attempt < 30 && attempts < maxAttempts; attempt++) {
+                            attempts++;
+                            const row = Math.floor(Math.random() * 11); // 0-10
+                            const col = Math.floor(Math.random() * 9); // 0-8
+
+                            if (blockFits(block, row, col)) {
+                                placeBlock(block, row, col);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Tercera pasada: rellenar con bloques pequeños
+                let noMoreFits = false;
+                while (!noMoreFits && attempts < maxAttempts) {
+                    noMoreFits = true;
+
+                    for (let row = 0; row < 11; row++) {
+                        for (let col = 0; col < 11; col++) {
+                            if (grid[row][col] === 0) {
+                                // Busco bloques pequeños que puedan encajar (2x2)
+                                const smallBlock = { width: 2, height: 2, acceptsVertical: false };
+
+                                if (blockFits(smallBlock, row, col)) {
+                                    placeBlock(smallBlock, row, col);
+                                    noMoreFits = false;
+                                    attempts++;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (!noMoreFits) break;
+                    }
+                }
+
+                // Verifico si hay espacios vacíos y los relleno con celdas 1x1 si es necesario
+                for (let row = 0; row < 12; row++) {
+                    for (let col = 0; col < 12; col++) {
+                        if (grid[row][col] === 0) {
+                            const singleCell = { width: 1, height: 1, acceptsVertical: false };
+                            placeBlock(singleCell, row, col);
+                        }
+                    }
+                }
+
+                // Selecciono un índice aleatorio para el logo (excluyendo celdas verticales)
+                const horizontalBlockIndexes = placedBlocks
+                    .map((block, index) => !block.type.acceptsVertical ? index : -1)
+                    .filter(idx => idx !== -1);
+
+                // Selecciono una celda grande para el logo
+                const bigHorizontalBlocks = horizontalBlockIndexes.filter(idx =>
+                    placedBlocks[idx].type.width >= 2 && placedBlocks[idx].type.height >= 2);
+
+                logoPosition = bigHorizontalBlocks.length > 0
+                    ? bigHorizontalBlocks[Math.floor(Math.random() * bigHorizontalBlocks.length)]
+                    : horizontalBlockIndexes[Math.floor(Math.random() * horizontalBlockIndexes.length)];
+
+                // Marco la celda como logo
+                placedBlocks[logoPosition].isLogo = true;
+
+                return placedBlocks;
+            }
+
+            // Función para obtener una imagen que no esté en uso actualmente
+            function getUniqueImage(isVertical) {
+                const imagePool = isVertical ? images.vertical : images.horizontal;
+
+                // Filtro las imágenes que no están actualmente visibles
+                const availableImages = imagePool.filter(img => !activeImages.includes(img));
+
+                // Si no hay imágenes disponibles, uso todo el pool pero evito la última usada
+                if (availableImages.length === 0) {
+                    // Recupero todas las imágenes excepto la última usada (si existe)
+                    const lastUsed = activeImages.find(img =>
+                        (isVertical && img.includes('916')) || (!isVertical && !img.includes('916'))
+                    );
+
+
+
+
+
+                    return imagePool.find(img => img !== lastUsed) || imagePool[0];
+                }
+
+                // Selecciono secuencialmente, no al azar, para mayor variedad
+                return availableImages[0];
+            }
+
+            // Función para crear el HTML de las celdas
+            function renderCells(blocks) {
+                blocks.forEach(block => {
+                    const cell = $('<div>', {
+                        class: `image-cell`,
+                        id: `cell-${block.id}`,
+                        style: `grid-column: ${block.col + 1} / span ${block.type.width}; 
+                               grid-row: ${block.row + 1} / span ${block.type.height};`
+                    });
+
+                    // Creo dos wrappers para el efecto de transición
                     const wrapper1 = $('<div>', {
                         class: 'image-wrapper active',
-                        id: `wrapper-${cellCounter}-1`
+                        id: `wrapper-${block.id}-1`
                     });
-                    
+
                     const wrapper2 = $('<div>', {
                         class: 'image-wrapper',
-                        id: `wrapper-${cellCounter}-2`
+                        id: `wrapper-${block.id}-2`
                     });
-                    
-                    // Seleccionar imágenes iniciales aleatorias
-                    const randomImage1 = config.images[Math.floor(Math.random() * config.images.length)];
-                    const img1 = $('<img>', {
-                        src: `${randomImage1}?w=1312&h=736&fit=crop&auto=format`,
-                        alt: `Imagen de galería ${cellCounter}-1`
-                    });
-                    
-                    const randomImage2 = config.images[Math.floor(Math.random() * config.images.length)];
-                    const img2 = $('<img>', {
-                        src: `${randomImage2}?w=1312&h=736&fit=crop&auto=format`,
-                        alt: `Imagen de galería ${cellCounter}-2`
-                    });
-                    
-                    wrapper1.append(img1);
-                    wrapper2.append(img2);
+
+                    // Si es la celda del logo, cargo el logo
+                    if (block.isLogo) {
+                        const imgLogo = $('<img>', {
+                            src: `${images.logo}?w=1312&h=736&fit=crop&auto=format`,
+                            alt: 'Logo CITDAI'
+                        });
+                        wrapper1.append(imgLogo);
+                        activeImages.push(images.logo);
+                    } else {
+                        // Selecciono una imagen adecuada para el tipo de celda
+                        const isVertical = block.type.acceptsVertical;
+                        const imageSrc = getUniqueImage(isVertical);
+
+                        const img1 = $('<img>', {
+                            src: `${imageSrc}?w=1312&h=736&fit=crop&auto=format`,
+                            alt: `Imagen de galería ${block.id}-1`
+                        });
+
+                        wrapper1.append(img1);
+                        activeImages.push(imageSrc);
+                    }
+
                     cell.append(wrapper1, wrapper2);
                     $('#gallery').append(cell);
-                    
-                    cellCounter++;
+                });
+            }
+
+            // Función para cambiar la imagen en una celda
+            function changeImage(blockId) {
+                const cell = $(`#cell-${blockId}`);
+
+                // Si es la celda del logo, no la cambio
+                if (blockId === cells[logoPosition]?.id) {
+                    return;
                 }
-            });
-            
-            // Función para cambiar la imagen en una celda aleatoria
-            function changeRandomImage() {
-                // Seleccionar una celda aleatoria
-                const randomCellIndex = Math.floor(Math.random() * cellCounter);
-                const cell = $(`#cell-${randomCellIndex}`);
-                
-                // Obtener los contenedores activos e inactivos
-                const wrappers = cell.find('.image-wrapper');
+
+                // Obtengo los contenedores activos e inactivos
                 const activeWrapper = cell.find('.image-wrapper.active');
                 const inactiveWrapper = cell.find('.image-wrapper:not(.active)');
-                
-                // Seleccionar una nueva imagen aleatoria
-                const randomImage = images[Math.floor(Math.random() * images.length)];
-                
-                // Actualizar el contenedor inactivo con la nueva imagen
+
+                // Obtengo el tipo de celda para saber si acepta imágenes verticales
+                const blockData = cells.find(b => b.id === blockId);
+                const isVertical = blockData?.type.acceptsVertical || false;
+
+                // Selecciono una nueva imagen que no esté en uso
+                const newImageSrc = getUniqueImage(isVertical);
+
+                // Actualizo el registro de imágenes activas
+                const oldImageSrc = activeWrapper.find('img').attr('src').split('?')[0];
+                const index = activeImages.indexOf(oldImageSrc);
+                if (index > -1) {
+                    activeImages.splice(index, 1);
+                }
+                activeImages.push(newImageSrc);
+
+                // Actualizo el contenedor inactivo con la nueva imagen
                 const img = $('<img>', {
-                    src: `${randomImage}?w=1312&h=736&fit=crop&auto=format`,
-                    alt: `Imagen de galería ${randomCellIndex}`
+                    src: `${newImageSrc}?w=1312&h=736&fit=crop&auto=format`,
+                    alt: `Imagen de galería ${blockId}`
                 });
                 inactiveWrapper.empty().append(img);
-                
-                // Realizar la transición
+
+                // Realizo la transición
                 activeWrapper.removeClass('active');
                 inactiveWrapper.addClass('active');
             }
-            
-            // Inicializar cambios de imagen aleatorios
-            function startRandomTransitions() {
-                // Reducir el retraso inicial antes de comenzar las transiciones
+
+            // Función para iniciar transiciones con tiempo aleatorio
+            function startTransitions() {
+                // Excluyo el logo de las transiciones
+                const blockIds = cells.map((block, idx) => idx !== logoPosition ? block.id : -1)
+                    .filter(id => id !== -1);
+
+                function scheduleNextTransition(index = 0) {
+                    // Tiempo aleatorio entre 3 y 7 segundos
+                    const delay = 3000 + Math.random() * 4000;
+
+                    setTimeout(() => {
+                        // Cambio la imagen del índice actual
+                        changeImage(blockIds[index]);
+
+                        // Programo la siguiente transición (rotando por todas las celdas)
+                        scheduleNextTransition((index + 1) % blockIds.length);
+                    }, delay);
+                }
+
+                // Inicio el ciclo de transiciones después de un breve retraso inicial
                 setTimeout(() => {
-                    // Establecer intervalo para cambiar imágenes
-                    setInterval(changeRandomImage, 5000);
-                        
-                    // Añadir cambios adicionales aleatorios con intervalos variables
-                    setInterval(() => {
-                        setTimeout(changeRandomImage, Math.random() * 3000);
-                    }, 3000);
+                    scheduleNextTransition();
                 }, 2000);
             }
-            
-            // Precargar imágenes para transiciones más suaves
+
+            // Función para precargar imágenes
             function preloadImages() {
-                images.forEach(function(src) {
+                // Precargo todas las imágenes
+                [...images.horizontal, ...images.vertical, images.logo].forEach(function (src) {
                     const img = new Image();
                     img.src = `${src}?w=1312&h=736&fit=crop&auto=format`;
                 });
             }
-            
-            // Inicializar la galería
-            preloadImages();
-            startRandomTransitions();
 
-            // Redirigir a bienvenida.html al hacer clic en cualquier parte de la página
-            $('body').on('click', function() {
+            // Inicializo la galería con un layout aleatorio
+            function initGallery() {
+                // Genero un layout aleatorio
+                cells = generateRandomLayout();
+
+                // Vacío el contenedor por si ya tiene elementos
+                $('#gallery').empty();
+
+                // Renderizo las celdas
+                renderCells(cells);
+
+                // Precargo imágenes
+                preloadImages();
+
+                // Inicio las transiciones
+                startTransitions();
+            }
+
+            // Inicio la galería
+            initGallery();
+
+            // Redirijo a bienvenida.html al hacer clic en cualquier parte de la página
+            $('body').on('click', function () {
                 window.location.href = 'bienvenidaCL _3.html';
             });
         });
+        console.log("Bloques que aceptan verticales:", placedBlocks.filter(b => b.type.acceptsVertical).length);
+        console.log("Imagen seleccionada:", imageSrc, "Es vertical:", isVertical);
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
     </script>
 </body>
+
 </html>

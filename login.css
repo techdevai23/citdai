@@ -1,0 +1,201 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #cdd8de;
+
+  color: var(--light-color);
+  overflow-x: hidden;
+  background-image: radial-gradient(circle, #e6f2ff 0%, #cdd8de 100%);
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #0066ff;
+  --secondary-color: #00ccff;
+  --light-color: #f1f7f0;
+  --accent-color: #ff3366;
+  --fondoDIV: rgb(0, 26, 51, 0.7);
+}
+
+h1{
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--secondary-color);
+}
+
+label {
+  font-size: 1.2rem;
+  color: var(--fondoDIV);
+}
+
+img {
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px grey;
+}
+
+.centrado {
+  display: flex;
+  margin-top: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+.centradoEntrar {
+  display: flex;
+  margin-left: -20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 2px 2px 4px grey;
+  border-color: #053c53;
+
+}
+
+a {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-text {
+  border-radius: 10px;
+
+  visibility: hidden;
+  width: 100%;
+  background-color: #f0f0f0;
+  color: rgb(27, 1, 1);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -22%;
+  /* Position above the image */
+  left: 10%;
+  margin-left: -50px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 5px;
+
+  box-shadow: 2px 2px 4px grey;
+  border: 2px solid #001306;
+}
+
+a:hover .hover-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/******************  pie de página  *******************/
+footer {
+  grid-column: 1 / span 3;
+  background-color: rgba(0, 10, 20, 0.8);
+  padding: 30px 0;
+  border-top: 1px solid var(--secondary-color);
+  margin-top: 50px;
+  color: var(--light-color);
+}
+
+.footer-title {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.enlaces-medios {
+  list-style: none;
+  padding-left: 80px;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: var(--light-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: var(--light-color);
+  margin-right: 15px;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--secondary-color);
+}
+
+.copyright {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 576px) {
+  .centrado {
+      margin-top: 20px;
+      /* Reduce el margen superior en móviles */
+      height: auto;
+      /* Permite que el contenedor se ajuste al contenido */
+  }
+
+  h1 {
+      font-size: 1.5rem;
+      /* Ajusta el tamaño del título */
+      text-align: center;
+      /* Centra el texto */
+  }
+
+  input {
+      width: 90%;
+      /* Hace que los inputs ocupen el 90% del ancho */
+      margin: 10px auto;
+      /* Centra los inputs */
+  }
+
+  .imagen-ventana3 {
+      max-width: 80%;
+      /* Ajusta el tamaño de la imagen */
+      height: auto;
+      /* Mantiene la proporción de la imagen */
+      display: block;
+      /* Asegura que la imagen se comporte como un bloque */
+      margin: 20px auto;
+      /* Centra la imagen */
+  }
+
+  .hover-text {
+      font-size: 0.8rem;
+      /* Ajusta el tamaño del texto en el hover */
+  }
+}
